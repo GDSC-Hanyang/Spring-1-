@@ -145,18 +145,21 @@ Spring Container는 별다른 설정이 없으면, **빈 객체들을 모두 싱
 > 거의 대부분 `@Controller` 같은 어노테이션을 이용하는 것 같아보여요.
 
 <img src="https://media.vlpt.us/images/hyunmin/post/1767f0c2-837c-4129-8715-9f58690ba9a6/velog.002.jpeg">
-위의 그림의 구조처럼 **`BeanDefinitionReader`가 XML,Java 설정,어노테이션들을 읽고 `BeanDefinition`으로 변환해준다.**
+
+위의 그림의 구조처럼 **`BeanDefinitionReader`가 XML,Java 설정,어노테이션들을 읽고 `BeanDefinition`으로 변환해준다.**  
 그 정보와 POJO 클래스를 적절히 조합해서 Container가 빈을 생성한다.
 
 요즘엔 대부분 어노테이션을 이용해서 빈을 등록하는데, 이건 어떻게 작동하는 걸까?
 
-**컴포넌트 스캔(Component Scan)**이 해결해준다.
-> 아래부터는 정확히는 Spring Boot 관련 내용.
+### 컴포넌트 스캔
+**컴포넌트 스캔(Component Scan)** 이 해결해준다.
+
+> 아래부터는 정확히는 Spring Boot 관련 내용입니다.
 
 `@SpringBootApplication` 어노테이션에는 `@ComponentScan`이라고 명시되어 있는데, 이 어노테이션이 사용된 클래스의  
 패키지를 `basePackage`로 정한다.
 
 그 후에 `basePacakge`와 그 서브 패키지들을 검색 대상으로 두고, `@Component`와 그것을 메타 어노테이션으로 가진 어노테이션들이 붙은 클래스들을  
 모두 찾아 `BeanDefinition`으로 변환 후 빈으로 등록시킨다. 또 `@Configuration 역시 스캔 대상이 된다.
->`@Repository',`@Service`,`@Controller` 같은것이 `@Component`를 메타 어노테이션으로 가진 어노테이션들이다.
+>`@Repository`,`@Service`,`@Controller` 같은것이 `@Component`를 메타 어노테이션으로 가진 어노테이션들이다.
 
