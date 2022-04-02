@@ -55,7 +55,7 @@ void TestSingleTon() {
 그리하여 대부분 read-only만 가능하도록 하며, 필드에 공유되지 않는 변수들을 사용한다. 
 
 # Reference
-(https://developer.apple.com/library/archive/documentation/General/Conceptual/DevPedia-CocoaCore/Singleton.html"Apple developer document for SingleTon Design Pattern")
+[Apple developer document for SingleTon Design Pattern](https://developer.apple.com/library/archive/documentation/General/Conceptual/DevPedia-CocoaCore/Singleton.html "SingleTon Document in Apple developver")     
 https://velog.io/@jaeeunxo1/spring-singleton    
 https://jhhan009.tistory.com/77     
 https://catsbi.oopy.io/6c4846a1-130d-4aba-94ea-e630cc15056d     
